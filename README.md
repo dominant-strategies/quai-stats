@@ -14,7 +14,7 @@ Clone the repository and install the dependencies
 
 ```bash
 git clone https://github.com/spruce-solutions/quai-stats.git
-cd quai-netstats
+cd quai-stats
 npm install
 sudo npm install -g grunt-cli
 ```
