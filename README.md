@@ -1,6 +1,5 @@
 Quai Network Stats
 ============
-[![Build Status][travis-image]][travis-url] [![dependency status][dep-image]][dep-url]
 
 This is a visual interface for tracking quai network status. It uses WebSockets to receive stats from running nodes and output them through an angular interface.
 
