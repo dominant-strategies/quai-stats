@@ -1,0 +1,46 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: #@ data.values.metadataLabel
+  labels:
+    app: #@ data.values.metadataLabel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: #@ data.values.specLabel
+  template:
+    metadata:
+      labels:
+        app: #@ data.values.specLabel
+    spec:
+      containers:
+      - name: quaistats
+        image: quainetwork/quai-stats:latest
+        imagePullPolicy: Always
+        command: ["npm", "start"]
+        resources:
+          requests:
+            memory: "10Gi"
+            cpu: "3000m"
+          limits:
+            memory: "10Gi"
+            cpu: "4000m"
+        ports:
+        - name: http
+          containerPort: 3000
+          protocol: TCP
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: quaistats
+spec:
+  selector:
+    component: #@ data.values.metadataLabel
+  ports:
+    - port: 3000
+      targetPort: 3000

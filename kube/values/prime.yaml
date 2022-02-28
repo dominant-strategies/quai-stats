@@ -1,0 +1,6 @@
+#@data/values
+---
+port: 8548
+configmap: config-prime
+specLabel: quai-stats-prime
+metadataLabel: stats-deployment-prime

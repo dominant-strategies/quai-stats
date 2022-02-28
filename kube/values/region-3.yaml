@@ -1,0 +1,6 @@
+#@data/values
+---
+port: 8548
+configmap: config-region-3
+specLabel: quai-stats-region-3
+metadataLabel: stats-deployment-region-3
